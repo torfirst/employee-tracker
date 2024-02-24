@@ -73,7 +73,7 @@ const viewRole = async () => {
 }
 
 const viewEmployee = async () => {
-    const [result] = await db.promise().query("SELECT employee.first_name, employee.last_name, employee.role_id AS role, employee.manager_id AS manager FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN employee AS manager ON employee.manager_id = manager.id;")
+    const [result] = await db.promise().query("SELECT employee.first_name, employee.last_name, employee.role_id AS role, employee.manager_id AS manager FROM employee LEFT JOIN role ON employee.role_id = role.id;")
     console.table(result)
     setTimeout(mainMenu, 3000)
 }
